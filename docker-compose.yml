@@ -50,10 +50,10 @@ services:
     environment:
       - "discovery.type=single-node"
 
-#  orders:
-#    build:
-#      context: ./producer
-#    ports:
-#      - "8080:8080"
-#    depends_on:
-#      - kafka
+  orders:
+    build:
+      context: ./producer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - kafka

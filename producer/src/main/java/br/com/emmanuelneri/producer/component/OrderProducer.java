@@ -15,7 +15,7 @@ public class OrderProducer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderProducer.class);
 
-    @Value("${kafka.order.topic}")
+    @Value("${order.topic}")
     private String orderTopic;
 
     private final KafkaTemplate<Object, Object> kafkaTemplate;
