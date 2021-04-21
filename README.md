@@ -74,9 +74,8 @@ It's also possible to create our own transforms as in the example below that use
 
 #### requirements
 
-- Maven 3+
-- Java 16+
-- Docker 18.02.0+ 
+- Docker
+- Bash
 
 #### start environment
 
