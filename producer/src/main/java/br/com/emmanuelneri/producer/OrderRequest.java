@@ -6,14 +6,16 @@ public class OrderRequest {
 
     private String identifier;
     private String customer;
+    private Type type;
     private BigDecimal value;
 
     public OrderRequest() {
 
     }
 
-    public OrderRequest(String identifier, String customer, BigDecimal value) {
+    public OrderRequest(String identifier, Type type, String customer, BigDecimal value) {
         this.identifier = identifier;
+        this.type = type;
         this.customer = customer;
         this.value = value;
     }
@@ -41,4 +43,17 @@ public class OrderRequest {
     public void setValue(BigDecimal value) {
         this.value = value;
     }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+}
+
+enum Type {
+    PURCHASE,
+    SALE
 }
