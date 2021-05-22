@@ -47,8 +47,22 @@ services:
     image: elasticsearch:7.12.0
     ports:
       - "9200:9200"
+      - "9300:9300"
     environment:
-      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "cluster.name=elasticsearch-cluster"
+      - "node.name=elasticsearch"
+      - "discovery.seed_hosts=elasticsearch2"
+      - "cluster.initial_master_nodes=elasticsearch,elasticsearch2"
+
+  elasticsearch2:
+    image: elasticsearch:7.12.0
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "cluster.name=elasticsearch-cluster"
+      - "node.name=elasticsearch2"
+      - "discovery.seed_hosts=elasticsearch"
+      - "cluster.initial_master_nodes=elasticsearch,elasticsearch2"
 
   orders:
     build:
